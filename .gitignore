@@ -1,3 +1,8 @@
 hello.elf
 hello.bin
 hello.lst
+build/
+tools/
+*.elf
+*.bin
+*.lst

@@ -13,7 +13,7 @@ void terminal_write(const char *str, int len) {
 
 /* Uncomment the code block below when implementing formatted output.
  */
-/*
+
 #include <stdlib.h>  // for itoa() and utoa()
 #include <string.h>  // for strlen() and strcat()
 #include <stdarg.h>  // for va_start(), va_end(), va_arg() and va_copy()
@@ -25,10 +25,20 @@ void format_to_str(char* out, const char* fmt, va_list args) {
         } else {
             fmt++;
             if (*fmt == 's') {
+                //concatenates two strings into a single one, we
+                //read an int-type argument list.
                 strcat(out, va_arg(args, char*));
             } else if (*fmt == 'd') {
+                //convert the integer to a string
                 itoa(va_arg(args, int), out + strlen(out), 10);
+            } else if (*fmt == 'c') {
+                char c = (char)va_arg(args,int);
+                strncat(out, &c, 1);
             }
+            /*else if (*fmt == 'c') {
+                itoa(va_arg(args, int), out + strlen(out)); 
+            }
+            */
         }
     }
 }
@@ -43,7 +53,6 @@ int printf(const char* format, ...) {
 
     return 0;
 }
-*/
 
 /* Uncomment the code block below when implementing dynamic memory allocation.
  */
@@ -67,7 +76,13 @@ int main() {
     terminal_write(msg, 15);
 
     /* Uncomment this line of code when implementing formatted output. */
-    /* printf("%s-%d is awesome!\n\r", "egos", 2000); */
-
+    printf("%d is a number\n\r", 1234);
+    printf("%s is a string\n\r", "abcd");
+    printf("%s-%d is awesome!\n\r", "egos", 2000);
+   
+    
+    printf("%c is character $\n\r", '$');
+    printf("%c is character 0\n\r", (char)48);
+    
     return 0;
 }
