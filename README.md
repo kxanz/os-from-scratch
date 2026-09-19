@@ -1,13 +1,20 @@
-## Vision
+# My work on egos-2000
 
-This project's vision is to help **every** student read **all** the code of a teaching operating system.
+This is my fork of [egos-2000](https://github.com/yhzhang0128/egos-2000).
+I'm working through the 9 projects in the [EGOS book](https://egos.fun).
+Each project lives on its own branch — everything below this section is
+the original author's README.
 
-With only **2000** lines of code, egos-2000 implements every component of a teaching operating system that runs on both QEMU and RISC-V boards.
-The [EGOS book](https://egos.fun/book/overview.html) contains 9 course projects based on egos-2000.
+| Project | Branch | What I implemented |
+|---|---|---|
+| P0: Hello, World | [p0-work](../../tree/p0-work) | `%c`/`%x`/`%u`/`%p`/`%llu` in printf, `ulltoa`, `format_to_str_len` |
+| P1: Cooperative Threads | — | |
+| P2: Preemptive Scheduling | — | |
+| P3: System Call & Protection | — | |
+| P4: Virtual Memory | — | |
+| P6: File System | — | |
 
-![Fail to load an image of egos-2000.](tools/images/egos-2000.jpg)
-
-```shell
+--
 # The cloc utility is used to count the lines of code.
 > cloc egos-2000 --exclude-ext=md
 ...
