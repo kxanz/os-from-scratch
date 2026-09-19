@@ -15,6 +15,11 @@ the original author's README.
 | P6: File System | — | |
 
 --
+---
+
+# Vision
+
+This project's vision is to help every student read all the code of a teaching operating system. With only 2000 lines of code, egos-2000 implements every component of a teaching operating system that runs on both QEMU and RISC-V boards. The [EGOS book](https://egos.fun/book/overview.html) contains 9 course projects based on egos-2000.
 # The cloc utility is used to count the lines of code.
 > cloc egos-2000 --exclude-ext=md
 ...
