@@ -28,17 +28,28 @@ void format_to_str(char* out, const char* fmt, va_list args) {
                 //concatenates two strings into a single one, we
                 //read an int-type argument list.
                 strcat(out, va_arg(args, char*));
+
             } else if (*fmt == 'd') {
                 //convert the integer to a string
                 itoa(va_arg(args, int), out + strlen(out), 10);
+
             } else if (*fmt == 'c') {
-                char c = (char)va_arg(args,int);
+                char c = (char)va_arg(args, int);
                 strncat(out, &c, 1);
+
+            } else if (*fmt == 'x') {
+                itoa(va_arg(args, int), out + strlen(out), 16);
+
+            } else if (*fmt == 'u') {
+                utoa(va_arg(args, unsigned int), out + strlen(out), 10);
+
+            } else if (*fmt == 'p') {
+                strcat(out, "0x");
+                utoa((unsigned int)va_arg(args, char*), out + strlen(out), 16);
+
+            } else if (*fmt == '1') {
+                ulltoa(va_arg(args, long unsigned int), out + strlen(out), 10);
             }
-            /*else if (*fmt == 'c') {
-                itoa(va_arg(args, int), out + strlen(out)); 
-            }
-            */
         }
     }
 }
@@ -76,13 +87,20 @@ int main() {
     terminal_write(msg, 15);
 
     /* Uncomment this line of code when implementing formatted output. */
-    printf("%d is a number\n\r", 1234);
     printf("%s is a string\n\r", "abcd");
+    printf("%d is a number\n\r", 1234);
     printf("%s-%d is awesome!\n\r", "egos", 2000);
    
     
     printf("%c is character $\n\r", '$');
     printf("%c is character 0\n\r", (char)48);
+
+    printf("%x is character 1234 in hexadecimal\n\r", 1234);
+
+    printf("%u is the maximum of unsigned int\n\r", (unsigned int)0xFFFFFFFF);
     
+    printf("%p is the hexadecimal address of the hello-world string\n\r", msg);
+
+    printf("%llu is the maximum of unsigned long long\n\r", 0xFFFFFFFFFFFFFFFFULL);
     return 0;
 }
